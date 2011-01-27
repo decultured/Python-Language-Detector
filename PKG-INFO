@@ -1,0 +1,18 @@
+Metadata-Version: 1.0
+Name: LanguageIdentifier
+Version: 0.1.3
+Summary: Tells you what language UTF-8 strings are written in
+Home-page: UNKNOWN
+Author: Jeff Graves
+Author-email: decultured@gmail.com
+License: MIT
+Description: 
+        Identifies languages based on unicode range testing and trigram identification
+Platform: any
+Classifier: Development Status :: done?
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: C++
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
