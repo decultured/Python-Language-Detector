@@ -1,0 +1,9 @@
+This is a language detector I built in C++ and wrapped as a python module.
+
+It uses basic trigram style identification, and is built to be fast and reliable.
+Some accuracy tradeoffs were made for speed over other similar algorithms, but accuracy remains very high for even short sample texts.
+This is currently used in a large commercial database application in production, and has proven to be stable, reliable, and fast.
+
+Makes heavy use of custom hash tables using Murmur hash for fast lookups.
+
+No official license is included yet, but at this stage consider it open source with attribution appreciated.
