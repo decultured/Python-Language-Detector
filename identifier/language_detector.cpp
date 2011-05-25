@@ -43,12 +43,12 @@ PyObject *lang_identify(PyObject *self, PyObject *args) {
 }
 
 PyObject *lang_loadtrigrams(PyObject *self, PyObject *args) {
-	const char *pathName;
-	int stringSize; 
-	if (!PyArg_ParseTuple(args, "s#", &pathName, &stringSize))
-		return NULL;
+	const char *pathName = "trigrams/";
+	// int stringSize; 
+	// if (!PyArg_ParseTuple(args, "s#", &pathName, &stringSize))
+	// 	return NULL;
 
-	if (!LangDatabase->LoadAll(pathName)) {
+	if (!LangDatabase->LoadAll("trigrams/")) {
 		PyErr_SetString(LangError, "File Loads failed - Directory not found");
 		return NULL;
 	}

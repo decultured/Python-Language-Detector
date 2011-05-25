@@ -3,7 +3,7 @@
 
 import languageIdentifier
 
-languageIdentifier.load("/Users/jgraves/trigrams/")
+languageIdentifier.load()
 print languageIdentifier.identify("This is a short english string?", 300, 300), "English"
 print languageIdentifier.identify("ليل مواقع احبك موت,دردشة,شات,منتديات,احبك,منتدى,دلي", 300, 300), "Arabic"
 print languageIdentifier.identify("La vitamina A o retinol es una vitamina o un calcio liposoluble; ayuda a la formación y mantenimiento de dientes sanos y tejidos blandos y óseo", 300, 300), "Spanish"
