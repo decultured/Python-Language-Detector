@@ -7,7 +7,7 @@ from setuptools import setup, Extension
 
 setup(
     name='languageIdentifier',
-    version='1.0.1.6',
+    version='1.0.2.0',
     license='MIT',
     author='Jeff Graves',
     author_email='decultured@gmail.com',
