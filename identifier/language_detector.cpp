@@ -5,7 +5,7 @@
 #include "language_database.h"
 
 static PyObject *LangError;
-static LanguageDatabase *LangDatabase;
+static LanguageDatabase LangDatabase;
 
 PyObject *lang_identify(PyObject *self, PyObject *args);
 PyObject *lang_loadtrigrams(PyObject *self, PyObject *args);
@@ -22,7 +22,6 @@ PyMODINIT_FUNC initlanguageIdentifier(void) {
 	if (m == NULL)
 		return;
 		
-	LangDatabase = new LanguageDatabase();
 	LangError = PyErr_NewException("languageIdentifier.error", NULL, NULL);
     Py_INCREF(LangError);
     PyModule_AddObject(m, "error", LangError);
@@ -35,7 +34,7 @@ PyObject *lang_identify(PyObject *self, PyObject *args) {
 	if (!PyArg_ParseTuple(args, "s#ii", &inputString, &stringSize, &maxTrigrams, &maxInputLength))
 		return NULL;
 
-	LanguageSample *sample = new LanguageSample(LangDatabase, inputString, maxTrigrams, maxInputLength);
+	LanguageSample *sample = new LanguageSample(&LangDatabase, inputString, maxTrigrams, maxInputLength);
 	const char *result = sample->Identify();
 	delete sample;
 	
@@ -48,7 +47,7 @@ PyObject *lang_loadtrigrams(PyObject *self, PyObject *args) {
 	if (!PyArg_ParseTuple(args, "s#", &pathName, &stringSize))
 		return NULL;
 
-	if (!LangDatabase->LoadAll(pathName)) {
+	if (!LangDatabase.LoadAll(pathName)) {
 		PyErr_SetString(LangError, "File Loads failed - Directory not found");
 		return NULL;
 	}
